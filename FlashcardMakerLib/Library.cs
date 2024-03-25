@@ -45,11 +45,9 @@ public static class Library
             var lineWidth = columnWidth * .9f;
             var x = col * columnWidth + (columnWidth - lineWidth) / 2f;
             var y = row * rowHeight + (rowHeight - fontCapHeight) / 2f + fontCapHeight;
-            pdf.ForeColor = System.Drawing.Color.DarkGray;
             pdf.MoveTo(x, y).LineTo(lineWidth, 0);
             pdf.MoveTo(x, y - fontCapHeight).LineTo(lineWidth, 0);
             pdf.LineStyle.DashStyle = new LineDashStyle(20f, 0);
-            pdf.ForeColor = System.Drawing.Color.Black;
             pdf.MoveTo(x, y - fontXHeight).LineTo(lineWidth, 0);
             pdf.LineStyle.DashStyle = LineDashStyle.Solid;
             x = col * columnWidth + columnWidth / 2;
@@ -58,7 +56,6 @@ public static class Library
 
         void PrintCutMarks()
         {
-            pdf.ForeColor = System.Drawing.Color.Black;
             for (int row = 0; row < (rows + 1); row++)
             {
                 for (int col = 0; col < (columns + 1); col++)
