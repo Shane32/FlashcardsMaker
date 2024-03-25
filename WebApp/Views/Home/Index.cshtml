@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Flashcards Generator</h2>
+
+<form id="wordListForm">
+    <div class="form-group mb-2">
+        <label for="wordList">Enter Words (one per line):</label>
+        <textarea class="form-control" id="wordList" rows="10"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Generate PDF</button>
+</form>
+
+@section Scripts {
+    <script>
+        document.getElementById('wordListForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const wordList = document.getElementById('wordList').value;
+            fetch(
+                '@Url.Action("CreateWordList")',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ words: wordList.replace(/\r/g, '').split('\n') }),
+                })
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    window.open(url, '_blank');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failure generating PDF; see console output');
+                });
+        });
+    </script>
+}

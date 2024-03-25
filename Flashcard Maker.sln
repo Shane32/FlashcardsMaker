@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flashcard Maker Console App", "ConsoleApp\Flashcard Maker Console App.csproj", "{F0B61080-569E-4175-A8AD-667BBB775FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{B5F93676-7362-4FB1-8F41-37328F42B086}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashcardMakerLib", "FlashcardMakerLib\FlashcardMakerLib.csproj", "{1879AC25-7136-42BC-A858-C87C3F9D2E7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0B61080-569E-4175-A8AD-667BBB775FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B61080-569E-4175-A8AD-667BBB775FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B61080-569E-4175-A8AD-667BBB775FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B61080-569E-4175-A8AD-667BBB775FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F93676-7362-4FB1-8F41-37328F42B086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F93676-7362-4FB1-8F41-37328F42B086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F93676-7362-4FB1-8F41-37328F42B086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F93676-7362-4FB1-8F41-37328F42B086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1879AC25-7136-42BC-A858-C87C3F9D2E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1879AC25-7136-42BC-A858-C87C3F9D2E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1879AC25-7136-42BC-A858-C87C3F9D2E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1879AC25-7136-42BC-A858-C87C3F9D2E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BD74D2A-65E5-4418-95F9-111174FAA1C0}
+	EndGlobalSection
+EndGlobal
