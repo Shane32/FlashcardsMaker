@@ -18,6 +18,8 @@
             e.preventDefault();
 
             const wordList = document.getElementById('wordList').value;
+            const newWindow = window.open('', '_blank'); // Open a blank window immediately on form submission
+
             fetch(
                 '@Url.Action("CreateWordList")',
                 {
@@ -30,7 +32,12 @@
                 .then(response => response.blob())
                 .then(blob => {
                     const url = window.URL.createObjectURL(blob);
-                    window.open(url, '_blank');
+                    if (newWindow) {
+                        newWindow.location.href = url;
+                    } else {
+                        // If the window didn't open, likely due to a pop-up blocker, offer a direct link instead.
+                        alert("Pop-up was blocked. Please allow pop-ups for this site and try again.");
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);

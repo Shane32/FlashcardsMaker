@@ -27,7 +27,13 @@ namespace WebApp.Controllers
         public IActionResult CreateWordList([FromBody] WordListRequest request)
         {
             // Assuming you have a service that can generate a PDF from a list of words
-            var pdfBytes = FlashcardMaker.Library.PrintToPdf(request.Words.Where(x => !string.IsNullOrWhiteSpace(x)).ToList());
+            var words = request.Words
+                .Where(x => x != null)
+                .Select(x => x.Trim())
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .ToList();
+
+            var pdfBytes = FlashcardMaker.Library.PrintToPdf(words);
 
             return File(pdfBytes, "application/pdf", "flashcards.pdf");
         }
