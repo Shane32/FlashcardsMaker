@@ -4,7 +4,7 @@ namespace FlashcardMaker;
 
 public static class Library
 {
-    public static Stream PrintToPdf(List<string> wordList, int columns = 2, int rows = 7, float fontSize = 50f)
+    public static Stream PrintToPdf(List<string> wordList, int columns = 1, int rows = 4, float fontSize = 100f)
     {
         using var pdf = new PDFWriter();
         pdf.ScaleMode = ScaleModes.Inches;
@@ -56,19 +56,23 @@ public static class Library
 
         void PrintCutMarks()
         {
+            var defaultTickSize = 0.25f;
             for (int row = 0; row < (rows + 1); row++)
             {
                 for (int col = 0; col < (columns + 1); col++)
                 {
-                    var tickSize = 0.25f;
-                    if (row == 0 || row == rows || col == 0 || col == columns)
-                    {
-                        tickSize = 0.5f;
-                    }
+                    var tickSize = (row == 0 || row == rows || col == 0 || col == columns)
+                        ? defaultTickSize * 2
+                        : defaultTickSize;
+
                     var x = col * columnWidth;
                     var y = row * rowHeight;
                     pdf.MoveTo(x - (tickSize / 2), y).LineTo(tickSize, 0);
                     pdf.MoveTo(x, y - (tickSize / 2)).LineTo(0, tickSize);
+                }
+                if (columns == 1) // draw center line for single column
+                {
+                    pdf.MoveTo(columnWidth / 2 - (defaultTickSize / 2), row * rowHeight).LineTo(defaultTickSize, 0);
                 }
             }
         }
